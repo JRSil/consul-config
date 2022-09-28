@@ -1,0 +1,20 @@
+consul members ... valida as instancias consul
+consul agent -dev ... inicia instancia de dev
+ifconfig ... para descobrir o IP da rede
+consul agent -server -bootstrap-expect=3 -node=consulserver01[nome do server] 
+-bind=[IP da rede] -data-dir=[diretório do arquivo (/var/lib/consul)] -config-dir=[diretório de configuração (/etc/consul.d)]
+-retry-join=[ip de um server]
+
+01 IP - 172.22.0.3
+02 IP - 172.22.0.4
+03 IP - 172.22.0.2
+IP Client 01 - 172.22.0.5
+IP Client 02 - 172.22.0.6
+
+consul join [IP de outro server consul] ... inicia comunicação entre consul
+
+apk -U add bind-tools ... Instalar plugin para verificar serviços
+
+dig @localhost -p 8600 nginx.service.consul ... Verifica serviço
+
+consul agent -config-dir=/etc/consul.d
